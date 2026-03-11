@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/api/invoiceapi.ts","./src/plugins/vuetify.ts","./src/app.vue","./src/components/approvalworkflow.vue","./src/components/invoiceform.vue","./env.d.ts"],"version":"5.7.3"}

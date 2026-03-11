@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="HowToRun.txt" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/InvoiceApproval.Api/InvoiceApproval.Api.csproj" />
+    <Project Path="src/InvoiceApproval.Application/InvoiceApproval.Application.csproj" />
+    <Project Path="src/InvoiceApproval.Domain/InvoiceApproval.Domain.csproj" />
+    <Project Path="src/InvoiceApproval.Infra.Core/InvoiceApproval.Infra.Core.csproj" />
+    <Project Path="src/InvoiceApproval.Infra.IoC/InvoiceApproval.Infra.IoC.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/InvoiceApproval.Tests.Unit/InvoiceApproval.Tests.Unit.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,12 @@
+@InvoiceApproval.Api.Api_HostAddress = http://localhost:5000
+
+###
+POST {{InvoiceApproval.Api.Api_HostAddress}}/api/invoices/determine-approvers
+Accept: */*
+Content-Type: Application/Json
+{
+  "amount": 15000,
+  "isPreferredVendor": false
+}
+###
+
