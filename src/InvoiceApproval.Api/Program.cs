@@ -12,6 +12,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<DetermineApproversRequestVa
 builder.Services.AddDomainServices();
 builder.Services.AddUseCases();
 builder.Services.AddValidations();
+builder.Services.AddPersistence(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {

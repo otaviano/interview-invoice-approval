@@ -10,6 +10,7 @@
     <Project Path="src/InvoiceApproval.Domain/InvoiceApproval.Domain.csproj" />
     <Project Path="src/InvoiceApproval.Infra.Core/InvoiceApproval.Infra.Core.csproj" />
     <Project Path="src/InvoiceApproval.Infra.IoC/InvoiceApproval.Infra.IoC.csproj" />
+    <Project Path="src/InvoiceApproval.Infra.Persistence/InvoiceApproval.Infra.Persistence.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/InvoiceApproval.Tests.Unit/InvoiceApproval.Tests.Unit.csproj" />
