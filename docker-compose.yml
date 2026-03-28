@@ -23,7 +23,7 @@ services:
       cassandra:
         condition: service_healthy
     volumes:
-      - ./infra/cassandra/init.cql:/init.cql:ro
+      - ./src/InvoiceApproval.Infra.Persistence/Cassandra/init.cql:/init.cql:ro
     command: cqlsh cassandra 9042 -f /init.cql
     restart: "no"
 
