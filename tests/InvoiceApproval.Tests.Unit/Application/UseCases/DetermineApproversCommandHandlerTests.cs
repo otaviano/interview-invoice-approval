@@ -1,4 +1,5 @@
 using FluentValidation;
+using InvoiceApproval.Application.Repositories;
 using InvoiceApproval.Application.UseCases.DetermineApprovers;
 using InvoiceApproval.Domain.Services;
 using NSubstitute.ExceptionExtensions;
@@ -9,11 +10,12 @@ public class DetermineApproversCommandHandlerTests
 {
     private readonly IValidator<DetermineApproversCommand> _validator = Substitute.For<IValidator<DetermineApproversCommand>>();
     private readonly IApprovalWorkflowService _workflowService = Substitute.For<IApprovalWorkflowService>();
+    private readonly IApprovalRecordRepository _approvalRecordRepository = Substitute.For<IApprovalRecordRepository>();
     private readonly DetermineApproversCommandHandler _sut;
 
     public DetermineApproversCommandHandlerTests()
     {
-        _sut = new DetermineApproversCommandHandler(_validator, _workflowService);
+        _sut = new DetermineApproversCommandHandler(_validator, _workflowService, _approvalRecordRepository);
     }
 
     [Fact]

@@ -1,0 +1,48 @@
+services:
+
+  cassandra:
+    image: cassandra:4.1
+    container_name: cassandra
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=InvoiceApprovalCluster
+    healthcheck:
+      test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+
+  cassandra-init:
+    image: cassandra:4.1
+    container_name: cassandra-init
+    depends_on:
+      cassandra:
+        condition: service_healthy
+    volumes:
+      - ./infra/cassandra/init.cql:/init.cql:ro
+    command: cqlsh cassandra 9042 -f /init.cql
+    restart: "no"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: invoice-approval-api
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - Cassandra__ContactPoints__0=cassandra
+      - Cassandra__Port=9042
+      - Cassandra__Keyspace=invoice_approval
+    depends_on:
+      cassandra:
+        condition: service_healthy
+    restart: on-failure
+
+volumes:
+  cassandra_data:
