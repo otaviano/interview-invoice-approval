@@ -286,6 +286,11 @@ public class FeatureNameCommandHandlerTests
 - Stack traces only included in non-production environments
 - `ValidationFilter<T>` on endpoints catches request-level validation before MediatR
 
+## Workflow Rules
+
+- **Always build and run tests after every new or changed implementation** — run `dotnet build` and `dotnet test` before considering a task done; do not skip even for small changes
+- **Stay strictly within scope** — never modify code outside the requested feature/fix without explicitly asking the user first; if a change in another area seems necessary, stop and ask
+
 ## API Conventions
 
 - Route: `api/{resource}/{action}` (kebab-case)
